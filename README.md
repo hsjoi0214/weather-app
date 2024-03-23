@@ -26,6 +26,10 @@ This readme file provides an overview of The Pocket Weather App, a single-page w
 
 ## Design
 
+**Wireframes:**
+
+image.png
+
 **Color Scheme:**
 
 * The app utilizes a blue and white color scheme for a clean and professional aesthetic. Blue evokes a sense of calmness and trust, often associated with weather information.
