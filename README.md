@@ -28,7 +28,7 @@ This readme file provides an overview of The Pocket Weather App, a single-page w
 
 **Wireframes:**
 
-image.png
+The wireframe for this app is created using Balsamiq wireframes: assets/media/wireframe.png
 
 **Color Scheme:**
 
