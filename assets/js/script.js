@@ -86,7 +86,6 @@ async function getWeather(city) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data);
     updateWeather(data);
   } catch (error) {
     console.error("Error getting weather:", error.message);
