@@ -1,6 +1,37 @@
 const apiKey = "df5d648541c8705160d9300fe16bdeba";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
+const searchBox = document.querySelector(".search input");
+const searchButton = document.querySelector(".search button");
+const weatherIcons = document.querySelector(".weather-icon");
+
+
+/**
+ * Takes an argument "city" and checks the user input 
+ * for its validity!
+ */
+async function checkForValidity(city) {
+  // Check for empty city name
+  if (city.length === 0) {
+    alert("Please enter a city name.");
+    return false;
+  }
+  // Check for characters only
+  const isValidFormat = /^[a-zA-Z]+$/.test(city);
+  if (!isValidFormat) {
+    alert("Please enter a valid city name using only letters.");
+    return false;
+  }
+  // Check for excessive length 
+  const maxLengthallowed = 20;
+  if (city.length > maxLengthallowed) {
+    alert(`City name cannot be longer than ${maxLengthallowed} characters.`);
+    return false;
+  }
+  return true;
+}
+
+
 /**
  * Takes an argument "data" and updates the weather details. 
  * Collects the element by targeting 'className' and updating it. 
@@ -20,10 +51,24 @@ async function updateWeather(data) {
   windSpeedElement.textContent = data.wind.speed + " km/h";
 
   const visibilityElement = document.getElementsByClassName("visibility")[0];
-  visibilityElement.textContent = (data.visibility / 1000) + " km";
+  visibilityElement.textContent = Math.round(data.visibility / 1000) + " km";
+
+  //Update the weather-icon with the respective temperature. 
+  if (data.weather[0].main.toLowerCase() === "Clouds".toLowerCase()) {
+    weatherIcons.src = "assets/media/clouds02.png";
+  } else if (data.weather[0].main.toLowerCase() === "Clear".toLowerCase()) {
+    weatherIcons.src = "assets/media/clear01.png";
+  } else if (data.weather[0].main.toLowerCase() === "Drizzle".toLowerCase()) {
+    weatherIcons.src = "assets/media/drizzle01.png";
+  } else if (data.weather[0].main.toLowerCase() === "Mist".toLowerCase()) {
+    weatherIcons.src = "assets/media/mist.png";
+  } else if (data.weather[0].main.toLowerCase() === "Snow".toLowerCase()) {
+    weatherIcons.src = "assets/media/snow01.png";
+  }
 
   document.querySelector(".search input").value = "";
 }
+
 
 /**
  * Takes an argument "city" and gives the weather details. 
@@ -32,9 +77,8 @@ async function updateWeather(data) {
  * and store it in 'data'.
  */
 async function getWeather(city) {
-  if (!city) {
-    console.error("Please enter a city name before searching!");
-    return;
+  if (!checkForValidity(city)) {
+    return; // Exit the function if city is invalid
   }
   try {
     const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
@@ -42,17 +86,15 @@ async function getWeather(city) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
     const data = await response.json();
+    console.log(data);
     updateWeather(data);
   } catch (error) {
     console.error("Error getting weather:", error.message);
   }
 }
 
-const searchBox = document.querySelector(".search input");
-const searchButton = document.querySelector(".search button");
 
-
-//Event listeners(search bar to be clicked, entered and place name in uppercase)
+//Event listeners(search bar to be clicked, entered and enter place name in uppercase)
 searchButton.addEventListener("click", () => {
   getWeather(searchBox.value);
 });
@@ -64,70 +106,5 @@ searchBox.addEventListener("keypress", (event) => {
 });
 
 searchBox.addEventListener("input", () => {
-    searchBox.value = searchBox.value.toUpperCase();
+  searchBox.value = searchBox.value.toUpperCase();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
