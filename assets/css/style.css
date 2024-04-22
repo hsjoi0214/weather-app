@@ -110,6 +110,17 @@ body {
     background-color: #d2ffd5;
 }
 
+.outfit-suggestion {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 4%;
+    width: 100%;
+}
+
+.show-suggestion {
+    margin-top: 2%;
+}
+
 .col {
     width: 100px; 
   }

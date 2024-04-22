@@ -6,6 +6,7 @@ const searchButton = document.querySelector(".search button");
 const weatherIcons = document.querySelector(".weather-icon");
 const containerDetail = document.querySelector(".details");
 const toggleButton = document.querySelector(".show-hide-button");
+const suggestionElement = document.querySelector('.outfit-suggestion');  
 
 
 /**
@@ -102,13 +103,33 @@ async function getWeather(city) {
     console.log(data);
     updateWeather(data);
     containerDetail.style.display = 'none';
+    suggestionElement.style.display = 'none';
   } catch (error) {
     console.error("Error getting weather:", error.message);
   }
 }
 
 
-//Event listeners(search bar to be clicked, entered and enter place name in uppercase)
+/**
+ * A simple function to suggest outfit according to the temperature
+ */
+function suggestOutfit() {
+  const temperatureElement = document.querySelector('.temperature');
+  let temperature = parseInt(temperatureElement.textContent.slice(0, -2)); // Extract just the number 
+
+  let outfitSuggestion = "";
+  if (temperature >= 25) { 
+      outfitSuggestion = "It's hot! Wear something light and breezy.";
+  } else if (temperature >= 15) {
+      outfitSuggestion = "It's a pleasant day! A light jacket might be a good idea.";
+  } else {
+      outfitSuggestion = "It's chilly today! Make sure to wear something warm.";
+  }
+
+  suggestionElement.textContent = outfitSuggestion;
+}
+
+//Event listeners(search bar to be clicked, entered and enter place name in uppercase and display outfit suggestion)
 searchButton.addEventListener("click", () => {
   getWeather(searchBox.value);
 });
@@ -127,7 +148,11 @@ toggleButton.addEventListener('click', function() {
   if (containerDetail.style.display === 'none') {
     containerDetail.style.display = 'flex';
     containerDetail.style.justifyContent = 'space-between'; 
+    suggestionElement.style.display = 'flex'; 
+    suggestionElement.style.justifyContent = 'centre'; 
+    suggestOutfit(); 
   } else {
     containerDetail.style.display = 'none';
+    suggestionElement.style.display = 'none';
   }
 });
