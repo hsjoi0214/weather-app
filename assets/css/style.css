@@ -96,11 +96,6 @@ body {
     margin-top: 5%;
 }
 
-.details.show {
-    display: flex;
-    justify-content: space-between;
-  }
-
 .show-hide-button {
     margin-top: 10%;
     background-color: #e8ffeb;
