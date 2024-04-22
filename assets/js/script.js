@@ -4,6 +4,8 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 const searchBox = document.querySelector(".search input");
 const searchButton = document.querySelector(".search button");
 const weatherIcons = document.querySelector(".weather-icon");
+const containerDetail = document.querySelector(".details");
+const toggleButton = document.querySelector(".show-hide-button");
 
 
 /**
@@ -42,7 +44,16 @@ async function updateWeather(data) {
   cityElement.textContent = data.name;
 
   const temperatureElement = document.getElementsByClassName("temperature")[0];
-  temperatureElement.textContent = Math.round(data.main.temp) + " °c";
+  temperatureElement.textContent = Math.round(data.main.temp) + "°c";
+
+  const temperatureElementB = document.getElementsByClassName("feelsliketemp")[0];
+  temperatureElementB.textContent = "Feels-like : " + Math.round(data.main.feels_like) + "°c";
+
+  const temperatureElementC = document.getElementsByClassName("tempmax")[0];
+  temperatureElementC.textContent = "H : " + (data.main.temp_max) + "°c";
+
+  const temperatureElementD = document.getElementsByClassName("tempmin")[0];
+  temperatureElementD.textContent = "L : " + (data.main.temp_min) + "°c";
 
   const humidityElement = document.getElementsByClassName("humidity")[0];
   humidityElement.textContent = data.main.humidity + " %";
@@ -64,6 +75,8 @@ async function updateWeather(data) {
     weatherIcons.src = "assets/media/mist.png";
   } else if (data.weather[0].main.toLowerCase() === "Snow".toLowerCase()) {
     weatherIcons.src = "assets/media/snow01.png";
+  } else if (data.weather[0].main.toLowerCase() === "Haze".toLowerCase()) {
+    weatherIcons.src = "assets/media/haze.png";
   }
 
   document.querySelector(".search input").value = "";
@@ -106,4 +119,8 @@ searchBox.addEventListener("keypress", (event) => {
 
 searchBox.addEventListener("input", () => {
   searchBox.value = searchBox.value.toUpperCase();
+});
+
+toggleButton.addEventListener('click', function() {
+  containerDetail.classList.toggle('show');
 });

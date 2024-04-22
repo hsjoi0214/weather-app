@@ -96,6 +96,11 @@ body {
     margin-top: 5%;
 }
 
+.details.show {
+    display: flex;
+    justify-content: space-between;
+  }
+
 .show-hide-button {
     margin-top: 10%;
     background-color: #e8ffeb;
@@ -108,14 +113,6 @@ body {
   
 .show-hide-button:hover {
     background-color: #d2ffd5;
-}
-
-.details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    margin-top: 50px;
 }
 
 .col {
