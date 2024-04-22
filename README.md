@@ -243,7 +243,7 @@ The style.css is validated using the CSS validator.
 
 ## Testing When Deploying On GitHub Pages
 
-- **Expected Behaviour:** All the pages of the website opens up without any distortion and all styles are effective.
+- **Expected Behaviour:** The app opens up without any distortion and all styles are effective.
 
 
 # Credits
