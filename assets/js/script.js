@@ -20,9 +20,9 @@ async function checkForValidity(city) {
     return false;
   }
   // Check for characters only
-  const isValidFormat = /^[a-zA-Z]+$/.test(city);
+  const isValidFormat = /^[a-zA-Z\s]+$/.test(city);
   if (!isValidFormat) {
-    alert("Please enter a valid city name using only letters.");
+    alert("Please enter a valid city name using only letter and spaces.");
     return false;
   }
   // Check for excessive length 
