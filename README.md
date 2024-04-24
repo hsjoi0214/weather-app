@@ -30,6 +30,7 @@ The functions in this weather app work together to fetch weather data from an ex
     * **Purpose:** Validates user input to ensure a proper city name is provided.
     * **Functionality:** 
         *   Checks if the city name is empty.
+        *   Checks if input is a number.
         *   Verifies that the city name contains only letters.
         *   Ensures the city name length doesn't exceed the allowed maximum.
 
@@ -252,29 +253,21 @@ The style.css is validated using the CSS validator.
 Images used in this project:
 
 - haze.png: https://www.flaticon.com/free-icon/fog_2930095?term=haze&page=1&position=3&origin=search&related_id=2930095
-- clear01.png: https://www.iconfinder.com/weather-icons?price=free
-https://www.iconfinder.com/icons/1530392/download/png/256
-- clouds02.png: https://www.iconfinder.com/weather-icons?price=free
-https://www.iconfinder.com/icons/2682849/download/png/256
-- drizzle01.png: https://www.iconfinder.com/weather-icons?price=free
-https://www.iconfinder.com/icons/1530390/download/png/256
-- humidity01.png: https://www.iconfinder.com/search?q=humidity&price=free&category=weather
-https://www.iconfinder.com/icons/2682807/download/png/256 
-- rain01.png: https://www.iconfinder.com/search?q=rain&price=free&category=weather
-https://www.iconfinder.com/icons/4102320/download/png/256
-- snow01.png: https://www.iconfinder.com/search?q=snow&price=free&category=weather
-https://www.iconfinder.com/icons/1530371/download/png/256
-- visibility02.png: https://www.iconfinder.com/search?q=visibility&price=free&category=weather
-https://www.iconfinder.com/icons/8559861/download/png/256
-- wind02.png: https://www.iconfinder.com/search?q=wind+speed&price=free&category=weather
-https://www.iconfinder.com/icons/2682842/download/png/256
+- clear01.png: https://www.iconfinder.com/weather-icons?price=freehttps://www.iconfinder.com/icons/1530392/download/png/256
+- clouds02.png: https://www.iconfinder.com/weather-icons?price=freehttps://www.iconfinder.com/icons/2682849/download/png/256
+- drizzle01.png: https://www.iconfinder.com/weather-icons?price=freehttps://www.iconfinder.com/icons/1530390/download/png/256
+- humidity01.png: https://www.iconfinder.com/search?q=humidity&price=free&category=weatherhttps://www.iconfinder.com/icons/2682807/download/png/256 
+- rain01.png: https://www.iconfinder.com/search?q=rain&price=free&category=weatherhttps://www.iconfinder.com/icons/4102320/download/png/256
+- snow01.png: https://www.iconfinder.com/search?q=snow&price=free&category=weatherhttps://www.iconfinder.com/icons/1530371/download/png/256
+- visibility02.png: https://www.iconfinder.com/search?q=visibility&price=free&category=weatherhttps://www.iconfinder.com/icons/8559861/download/png/256
+- wind02.png: https://www.iconfinder.com/search?q=wind+speed&price=free&category=weatherhttps://www.iconfinder.com/icons/2682842/download/png/256
 
 ## HTML,CSS and JAVASCRIPT related sources
 - OpenWeatherMap API: https://openweathermap.org/api/
 - I have also used very commonly used code snippets for weather apps like:
     *   **await fetch(`${apiUrl}${city}&appid=${apiKey}`)**
     *   **await response.json()**
-- I drew inspiration from several weather app projects that i found on GitHub (https://github.com/topics/weatherapp-javascript), particularly in the areas of HTML structure and fetching data using weather API.  My project significantly expands upon these concepts with custom code and features.
+- I drew inspiration from several weather app projects that i found on GitHub (https://github.com/topics/weatherapp-javascript), particularly in the areas of HTML structure and fetching data using weather API.  My project significantly expands upon these concepts with custom codes, features and structure.
 - Code institute for providing template. 
 
 

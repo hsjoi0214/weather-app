@@ -19,6 +19,11 @@ async function checkForValidity(city) {
     alert("Please enter a city name.");
     return false;
   }
+  // Check if input is a number
+  if (!isNaN(city)) { 
+    alert("Please enter a valid city name.");
+    return false; 
+  }
   // Check for characters only
   const isValidFormat = /^[a-zA-Z\s]+$/.test(city);
   if (!isValidFormat) {
